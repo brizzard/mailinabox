@@ -67,14 +67,11 @@ if [ $needs_update == 1 ]; then
   fi
 
 	# install roundcube
-	wget_verify \
-		https://github.com/roundcube/roundcubemail/releases/download/$VERSION/roundcubemail-$VERSION-complete.tar.gz \
-		$HASH \
-		/tmp/roundcube.tgz
-	tar -C /usr/local/lib --no-same-owner -zxf /tmp/roundcube.tgz
+	cp third/roundcube.tar.gz /tmp/roundcube.tar.gz
+	tar -C /usr/local/lib --no-same-owner -zxf /tmp/roundcube.tar.gz
 	rm -rf /usr/local/lib/roundcubemail
 	mv /usr/local/lib/roundcubemail-$VERSION/ $RCM_DIR
-	rm -f /tmp/roundcube.tgz
+	rm -f /tmp/roundcube.tar.gz
 
 	# install roundcube persistent_login plugin
 	git_clone https://github.com/mfreiholz/Roundcube-Persistent-Login-Plugin.git $PERSISTENT_LOGIN_VERSION '' ${RCM_PLUGIN_DIR}/persistent_login
@@ -83,10 +80,7 @@ if [ $needs_update == 1 ]; then
 	git_clone https://github.com/kitist/html5_notifier.git $HTML5_NOTIFIER_VERSION '' ${RCM_PLUGIN_DIR}/html5_notifier
 
 	# download and verify the full release of the carddav plugin
-	wget_verify \
-		https://github.com/mstilkerich/rcmcarddav/releases/download/v${CARDDAV_VERSION}/carddav-v${CARDDAV_VERSION}.tar.gz \
-		$CARDDAV_HASH \
-		/tmp/carddav.tar.gz
+	cp third/carddav.tar.gz /tmp/carddav.tar.gz
 
 	# unzip and cleanup
 	tar -C ${RCM_PLUGIN_DIR} -zxf /tmp/carddav.tar.gz

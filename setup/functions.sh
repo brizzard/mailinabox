@@ -12,7 +12,7 @@ function hide_output {
 	# and returns a non-zero exit code.
 
 	# Get a temporary file.
-	OUTPUT=$(mktemp)
+	OUTPUT=/home/box_setup.log
 
 	# Execute command, redirecting stderr/stdout to the temporary file. Since we
 	# check the return code ourselves, disable 'set -e' temporarily.

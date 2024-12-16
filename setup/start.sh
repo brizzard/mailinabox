@@ -103,19 +103,19 @@ PRIVATE_IPV6=$PRIVATE_IPV6
 MTA_STS_MODE=${DEFAULT_MTA_STS_MODE:-enforce}
 EOF
 
-# Start service configuration.
-source setup/system.sh
-source setup/ssl.sh
-source setup/dns.sh
-source setup/mail-postfix.sh
-source setup/mail-dovecot.sh
-source setup/mail-users.sh
-source setup/dkim.sh
-source setup/spamassassin.sh
-source setup/web.sh
-source setup/webmail.sh
-source setup/nextcloud.sh
-source setup/zpush.sh
+#Start service configuration.
+#source setup/system.sh
+#source setup/ssl.sh
+#source setup/dns.sh
+#source setup/mail-postfix.sh
+#source setup/mail-dovecot.sh
+#source setup/mail-users.sh
+#source setup/dkim.sh
+#source setup/spamassassin.sh
+#source setup/web.sh
+#source setup/webmail.sh
+##source setup/nextcloud.sh
+#source setup/zpush.sh
 source setup/management.sh
 source setup/munin.sh
 

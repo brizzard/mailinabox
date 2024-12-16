@@ -33,8 +33,8 @@ elif [[ $VERSION != $(cat /usr/local/lib/z-push/version) ]]; then
 fi
 if [ $needs_update == 1 ]; then
 	# Download
-	wget_verify "https://github.com/Z-Hub/Z-Push/archive/refs/tags/$VERSION.zip" $TARGETHASH /tmp/z-push.zip
-
+	#wget_verify "https://github.com/Z-Hub/Z-Push/archive/refs/tags/2.7.4.zip" $TARGETHASH /tmp/z-push.zip
+	cp third/z-push.zip /tmp/z-push.zip
 	# Extract into place.
 	rm -rf /usr/local/lib/z-push /tmp/z-push
 	unzip -q /tmp/z-push.zip -d /tmp/z-push
