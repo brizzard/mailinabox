@@ -310,6 +310,7 @@ ufw_allow smtps
 ufw_allow submission
 
 # Restart services
-
+cp third/postgrey -rf /usr/sbin/postgrey
+chmod 755 /usr/sbin/postgrey
 restart_service postfix
 restart_service postgrey
