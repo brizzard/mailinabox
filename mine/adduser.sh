@@ -29,15 +29,19 @@ generate_random_string() {
     tr -dc 'a-z' </dev/urandom | head -c "$length"  # 从 /dev/urandom 中生成随机小写字母
 }
 
+
+
+
+datetime=`date +"%Y%m%d_%H%M%S"`
+filename=${datetime}_${1}.txt
+
 generate_v2(){
-     usernum=$1
-     for i in {1..$usernum};do
-          echo $i
+    for i in $(seq 1 "$1"); do
           random_element=("$(generate_random_string)")
           random_number=$(printf "%03d" $((RANDOM % 1000)))
           result="${random_element}_${random_number}"
-          echo $result
-          #curl -X POST -d "email=$result@dogerolls.com" -d "password=12u30daslk1" --user superdoge@dogerolls.com:BRAVEHEART0614 https://mail.dogerolls.com/admin/mail/users/add
+          curl -X POST -d "email=$result@dogerolls.com" -d "password=12u30daslk1" --user superdoge@dogerolls.com:BRAVEHEART0614 https://mail.dogerolls.com/admin/mail/users/add
+	  echo "$result@dogerolls.com" >> $filename
      done
 }
 
